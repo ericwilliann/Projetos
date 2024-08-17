@@ -1,0 +1,171 @@
+
+.navbar {
+    margin-bottom: 0;
+    align-content: center;
+    justify-content: center;
+    a{
+        font-size: 50px;
+    }
+}
+
+/* Define a animação de "worm" */
+@keyframes worm {
+    0% {
+        transform: translateY(0) scaleX(1);
+    }
+    50% {
+        transform: translateY(-10px) scaleX(1.1);
+    }
+    100% {
+        transform: translateY(0) scaleX(1);
+    }
+}
+
+/* Estilo para a navbar e o efeito de animação */
+.navbar-brand {
+    display: inline-block;
+    position: relative;
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    overflow: hidden;
+    /* Adiciona a animação ao texto */
+    animation: worm 2s ease-in-out infinite;
+}
+
+.navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover::before {
+    transform: scaleX(1);
+}
+
+#definicao { background: url('img/pngwing.com.png') center/contain no-repeat; }
+#importancia { background: url('img/grafico-de-dados-crescente.png') center/contain no-repeat; }
+#processos { background: url('img/pngwing2.com.png') center/contain no-repeat; }
+#desafios { background: url('img/desafio.png') center/contain no-repeat; }
+#tendencias { background: url('img/best-trello-alternatives.jpg') center/contain no-repeat; }
+
+body {
+    font-family: 'New Amsterdam', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+    font-size: 30px;
+}
+
+h2{
+    font-size: 35px;
+    color: #082016;
+}
+
+h1{
+    font-size: 35px;
+    color: #ffffff;
+    margin-top: 6px;
+}
+.navbar {
+    margin-bottom: 0;
+}
+
+.parallax {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.parallax::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+}
+
+.parallax .container {
+    position: relative;
+    z-index: 2;
+}
+
+.parallax .section-toggle {
+    z-index: 3;
+    position: relative;
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+}
+
+.parallax .section-toggle:hover {
+    background-color: #218838; /* Verde mais escuro */
+    border-color: #1e7e34;
+}
+/* Define a animação de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilo padrão da descrição */
+.description {
+    display: none; /* Inicialmente escondido */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: #082016 3px solid;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Estilo quando a descrição está visível */
+.description.show {
+    display: block;
+    opacity: 1;
+}
+
+.parallax.expanded .section-toggle {
+    display: none;
+}
+
+.parallax.expanded .description {
+    display: block;
+    opacity: 1;
+}
+
+footer {
+    background-color: #082016;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    margin-top: 20px;
+}
